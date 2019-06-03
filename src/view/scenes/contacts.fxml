@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.controllers.TableController">
    <children>
       <Text layoutX="373.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contactos" />
@@ -17,8 +16,9 @@
             <TableColumn fx:id="columnaTelefono" prefWidth="145.0" text="Teléfono" />
         </columns>
       </TableView>
-      <Button fx:id="botonAgregar" layoutX="628.0" layoutY="505.0" mnemonicParsing="false" onAction="#agregarContacto" text="Agregar Contacto" />
-      <TextField fx:id="textfieldNombre" layoutX="131.0" layoutY="505.0" promptText="Nombre" />
-      <TextField fx:id="textfieldTelefono" layoutX="393.0" layoutY="505.0" promptText="Telefono" />
+      <Button fx:id="botonAgregar" layoutX="478.0" layoutY="505.0" mnemonicParsing="false" onAction="#agregarContacto" text="Agregar Contacto" />
+      <TextField fx:id="textfieldNombre" layoutX="53.0" layoutY="505.0" promptText="Nombre" />
+      <TextField fx:id="textfieldTelefono" layoutX="264.0" layoutY="505.0" promptText="Telefono" />
+      <Button layoutX="643.0" layoutY="505.0" mnemonicParsing="false" onAction="#verContactos" text="Button" />
    </children>
 </AnchorPane>

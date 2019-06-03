@@ -39,4 +39,14 @@ public class Lista {
         }
         return null;
     }
+
+    public String imprimirLista() {
+        Nodo auxiliar = nodoSiguiente;
+        StringBuilder listaPersonas = new StringBuilder();
+        while (auxiliar != null) {
+            listaPersonas.append(auxiliar.contacto.toString()).append("\n");
+            auxiliar = auxiliar.apuntador;
+        }
+        return listaPersonas.toString();
+    }
 }

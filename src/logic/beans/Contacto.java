@@ -1,27 +1,29 @@
 package logic.beans;
 
 import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Contacto {
     // Atributos de la clase
+    private boolean onLine;
     private StringProperty nombre;
     private StringProperty telefono;
     //private StringProperty password;
-    private boolean onLine;
-    private List<String> mensajes;
-    private Lista contactos;
+    private ObservableList<String> mensajes;
+    private ObservableList<Contacto> contactos;
 
     // Metodo Constructor para usuarios nuevos
     public Contacto(String nombre, String telefono) {
+        this.onLine = false;
         this.nombre = new SimpleStringProperty(nombre);
         this.telefono = new SimpleStringProperty(telefono);
         //this.password = new SimpleStringProperty(password);
-        this.onLine = false;
-        this.mensajes = new ArrayList<>();
-        this.contactos = new Lista();
+        this.mensajes = FXCollections.observableArrayList();
+        this.contactos = FXCollections.observableArrayList();
     }
 
     // Get - Set - Property (nombre)
@@ -80,16 +82,16 @@ public class Contacto {
         this.onLine = onLine;
     }
 
-    public Lista getContactos() {
+    public ObservableList<Contacto> getContactos() {
         return contactos;
     }
 
-    public void setContactos(Lista contactos) {
+    public void setContactos(ObservableList<Contacto> contactos) {
         this.contactos = contactos;
     }
 
     public void nuevoContacto(Contacto contacto) {
-        contactos.agregar(contacto);
+        contactos.add(contacto);
     }
     // Sobreescritura de Metodos
     @Override

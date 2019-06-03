@@ -4,11 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Administrador {
-    private Lista usuariosRegistrados;
+    private static Lista usuariosRegistrados = new Lista();
 
-    public Administrador() {
-        this.usuariosRegistrados = new Lista();
+    public static void registrarUsuario(Contacto contacto) {
+        usuariosRegistrados.agregar(contacto);
     }
 
+    public static Lista getUsuariosRegistrados() {
+        return usuariosRegistrados;
+    }
 
+    public static Contacto usuarioEnLinea() {
+        return usuariosRegistrados.buscar(Contacto::isOnLine);
+    }
 }
