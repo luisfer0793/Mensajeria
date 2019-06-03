@@ -4,5 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Administrador {
-    private static Map<String, String> credenciales = new HashMap<>();
+    private Lista usuariosRegistrados;
+
+    public Administrador() {
+        this.usuariosRegistrados = new Lista();
+    }
+
+
 }
