@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:300,400,600&display=swap');
+
+.root {
+    -fx-font-family: "Catamaran", sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+}

@@ -3,26 +3,26 @@ package logic.beans;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.ObservableMap;
 
 public class Contacto {
     // Atributos de la clase
     private boolean onLine;
     private StringProperty nombre;
     private StringProperty telefono;
-    //private StringProperty password;
+    private StringProperty password;
     private ObservableList<String> mensajes;
+//    private ObservableList<String> emisores;
     private ObservableList<Contacto> contactos;
 
     // Metodo Constructor para usuarios nuevos
-    public Contacto(String nombre, String telefono) {
+    public Contacto(String nombre, String telefono, String password) {
         this.onLine = false;
         this.nombre = new SimpleStringProperty(nombre);
         this.telefono = new SimpleStringProperty(telefono);
-        //this.password = new SimpleStringProperty(password);
+        this.password = new SimpleStringProperty(password);
         this.mensajes = FXCollections.observableArrayList();
+//        this.emisores = FXCollections.observableArrayList();
         this.contactos = FXCollections.observableArrayList();
     }
 
@@ -53,24 +53,25 @@ public class Contacto {
     }
 
     // Get - Set - Property (nombre)
-//    public String getPassword() {
-//        return password.get();
-//    }
-//
-//    public void setPassword(String password) {
-//        this.password.set(password);
-//    }
-//
-//    public StringProperty passwordProperty() {
-//        return password;
-//    }
+    public String getPassword() {
+        return password.get();
+    }
+
+    public void setPassword(String password) {
+        this.password.set(password);
+    }
+
+    public StringProperty passwordProperty() {
+        return password;
+    }
 
     // Get (mensajes)
-    public List<String> getMensajes() {
+    public ObservableList<String> getMensajes() {
         return mensajes;
     }
 
     public void agregarMensaje(String mensaje) {
+//        this.emisores.add(emisor);
         this.mensajes.add(mensaje);
     }
 
@@ -82,21 +83,15 @@ public class Contacto {
         this.onLine = onLine;
     }
 
+    // Get - Set (contactos)
     public ObservableList<Contacto> getContactos() {
         return contactos;
     }
 
-    public void setContactos(ObservableList<Contacto> contactos) {
-        this.contactos = contactos;
-    }
-
-    public void nuevoContacto(Contacto contacto) {
-        contactos.add(contacto);
-    }
     // Sobreescritura de Metodos
     @Override
     public String toString() {
-        return String.format("[%s - %s - %s]", nombre.get(), telefono.get(), onLine);
+        return String.format("[%s - %s - %s - %s]", nombre.get(), telefono.get(), password.get(), onLine);
     }
 
     @Override
